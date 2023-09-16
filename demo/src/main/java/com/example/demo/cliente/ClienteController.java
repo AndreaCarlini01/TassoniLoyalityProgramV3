@@ -8,19 +8,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path ="api/clienti" )
+@RequestMapping(path = "api/v1/cliente")
 public class ClienteController {
 
-    private final ClienteServizi clienteServizi;
-    @Autowired
-    public ClienteController(ClienteServizi clienteServizi) {
-        this.clienteServizi = clienteServizi;
+    private final ClienteService clienteService;
+
+    @Autowired //per fare l'iniezione (Dependency Injection)
+    public ClienteController(ClienteService clienteService) {
+        this.clienteService = clienteService;
     }
 
     @GetMapping
-    public List<Cliente> getCliente(){
-         return clienteServizi.getCliente();
+    public List<Cliente> getClienti() {
+        return clienteService.getClienti();
     }
-
-
 }

@@ -1,12 +1,8 @@
 package com.example.demo.cliente;
 
-import com.example.demo.programmaFedelta.ProgrammaFedelta;
-
 import java.time.LocalDate;
-import java.util.List;
 
 public class Cliente {
-
     private Long clienteId;
     private String nome;
     private String cognome;
@@ -15,34 +11,19 @@ public class Cliente {
     private String indirizzo;
     private LocalDate dataDiNascita; // Dichiarazione della variabile dataDiNascita
     private String codiceFiscale;
-    private List<ProgrammaFedelta> programmiFedeltaCliente;
 
-
-    public Cliente(Long clienteId, String nome, String cognome, String numCellulare, String email, String indirizzo, LocalDate dataDiNascita, String codiceFiscale, List<ProgrammaFedelta> programmiFedeltaCliente) {
-        this.clienteId = clienteId;
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.numeroCellulare = numCellulare;
-        this.indirizzo = indirizzo;
-        this.dataDiNascita = dataDiNascita;
-        this.codiceFiscale = codiceFiscale;
-        this.programmiFedeltaCliente = programmiFedeltaCliente;
+    public Cliente() {
     }
 
-
-    /**
-     *    Metodo senza ID perchè generato ?????????
-     * @param nome
-     * @param cognome
-     * @param email
-     * @param numeroCellulare
-     * @param indirizzo
-     * @param dataDiNascita
-     * @param codiceFiscale
-     * @param //programmiFedeltaCliente
-     */
-    public Cliente(String nome, String cognome, String email, String numeroCellulare, String indirizzo, LocalDate dataDiNascita, String codiceFiscale /*List<ProgrammaFedelta> programmiFedeltaCliente**/) {
+    public Cliente(Long clienteId,
+                   String nome,
+                   String cognome,
+                   String email,
+                   String numeroCellulare,
+                   String indirizzo,
+                   LocalDate dataDiNascita,
+                   String codiceFiscale) {
+        this.clienteId = clienteId;
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -50,7 +31,19 @@ public class Cliente {
         this.indirizzo = indirizzo;
         this.dataDiNascita = dataDiNascita;
         this.codiceFiscale = codiceFiscale;
-        //this.programmiFedeltaCliente = programmiFedeltaCliente;
+    }
+
+    /**
+     * Costruttore senza ID
+     */
+    public Cliente(String nome, String cognome, String email, String numeroCellulare, String indirizzo, LocalDate dataDiNascita, String codiceFiscale) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.numeroCellulare = numeroCellulare;
+        this.indirizzo = indirizzo;
+        this.dataDiNascita = dataDiNascita;
+        this.codiceFiscale = codiceFiscale;
     }
 
     public Long getClienteId() {
@@ -117,11 +110,17 @@ public class Cliente {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public List<ProgrammaFedelta> getProgrammiFedeltaCliente() {
-        return programmiFedeltaCliente;
-    }
-
-    public void setProgrammiFedeltaCliente(List<ProgrammaFedelta> programmiFedeltaCliente) {
-        this.programmiFedeltaCliente = programmiFedeltaCliente;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "clienteId=" + clienteId +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", numeroCellulare='" + numeroCellulare + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", dataDiNascita=" + dataDiNascita +
+                ", codiceFiscale='" + codiceFiscale + '\'' +
+                '}';
     }
 }
